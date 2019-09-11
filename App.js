@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet, Button } from 'react-native';
 import ToastExample from './ToastExample';
 
 export default class App extends Component {
@@ -9,16 +9,25 @@ export default class App extends Component {
     };
   }
 
-  componentDidMount() {
-  ToastExample.show('Awesome', ToastExample.SHORT);
+_onToast() {
+  ToastExample.show('Awesome is write in Native Module', ToastExample.LONG);
 
-  }
+}
 
   render() {
     return (
-      <View>
-        <Text> App </Text>
+      <View style={styles.containerApp}>
+        <Text>Hello Strangger</Text>
+       <Button title='Hello From Another World' onPress={this._onToast} color='green'/>
       </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  containerApp:{
+    flex:1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+});
